@@ -21,7 +21,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.manager.requestAlwaysAuthorization()
-        
+        checkButton.layer.shadowOpacity = 0.7
+        checkButton.layer.shadowOffset = CGSize(width: 3.0, height: 1.0)
+        checkButton.layer.shadowRadius = 5.0
         // For use in foreground
         self.manager.requestWhenInUseAuthorization()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
@@ -53,10 +55,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBAction func checkDanger(_ sender: AnyObject) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true;
-        starRating.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        UIView.animate(withDuration: 15.0,
+        checkButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        UIView.animate(withDuration: 0.5,
                        delay: 0,
-                       usingSpringWithDamping: 0.02,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 2.0,
+                       options: .allowUserInteraction,
+                       animations: { [weak self] in
+                        self?.checkButton.transform = .identity
+            },
+                       completion: nil)
+        starRating.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 10.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.05,
                        initialSpringVelocity: 2.0,
                        options: .allowUserInteraction,
                        animations: { [weak self] in
@@ -116,7 +128,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                                 if let data = data, let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
                                     //stuff happens
                                     print(jsonResult)
-                                    self.postData(url: "http://54.85.173.173:8000/rating?lat=\(lat)&lon=\(long)&time=\(2)", params: jsonResult) { (data, response, error) -> Void in
+                                    self.postData(url: "http://hackharambe.com:8000/rating?lat=\(lat)&lon=\(long)&time=\(2)", params: jsonResult) { (data, response, error) -> Void in
                                         guard error == nil && data != nil else {                                                          // check for fundamental networking error
                                             print("error=\(error)")
                                             return
