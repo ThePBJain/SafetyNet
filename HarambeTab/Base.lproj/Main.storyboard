@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HarambeTab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,94 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddq-EE-J7T">
+                                <color key="backgroundColor" red="0.96566506410256414" green="0.17328730557137026" blue="0.33328802860832307" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="1A6-ic-kmb"/>
+                                    <constraint firstAttribute="height" constant="50" id="bfj-sJ-1m3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                                <state key="normal" title="How Safe Am I?">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkDanger:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nqg-l2-09W"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safety Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-d5-nI9">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cMu-Cn-h8g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
+                                <color key="textColor" red="0.080607337757849673" green="0.22672561925300294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safety Net" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3D-Ck-fQi">
+                                <color key="backgroundColor" red="0.0" green="0.22919129532757856" blue="0.94156841866153851" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="Rx1-kS-dDA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="3" height="-1"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3G-VY-JQe" customClass="CosmosView" customModule="HarambeTab" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="1" green="0.41813264513846249" blue="0.069323142320096953" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" red="1" green="0.41813264509999998" blue="0.069323142320000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" red="1" green="0.41813264509999998" blue="0.069323142320000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="d3D-Ck-fQi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ake-qW-eIA"/>
+                            <constraint firstItem="aQQ-d5-nI9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" priority="750" constant="-124.5" id="B7e-ce-5p7"/>
+                            <constraint firstItem="d3D-Ck-fQi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IKm-Jm-nwf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ddq-EE-J7T" secondAttribute="bottom" constant="30" id="M47-jK-QfH"/>
+                            <constraint firstAttribute="trailing" secondItem="d3D-Ck-fQi" secondAttribute="trailing" id="QI1-cJ-OkA"/>
+                            <constraint firstItem="aQQ-d5-nI9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WBY-4d-s0V"/>
+                            <constraint firstItem="d3D-Ck-fQi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YGp-i4-QlB"/>
+                            <constraint firstAttribute="trailing" secondItem="aQQ-d5-nI9" secondAttribute="trailing" id="bbc-5j-Aqy"/>
+                            <constraint firstItem="T3G-VY-JQe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" priority="750" id="cK0-XR-2bb"/>
+                            <constraint firstItem="T3G-VY-JQe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aQQ-d5-nI9" secondAttribute="bottom" constant="30" id="j5c-28-S46"/>
+                            <constraint firstAttribute="trailing" secondItem="d3D-Ck-fQi" secondAttribute="trailing" id="nIW-eC-cdC"/>
+                            <constraint firstItem="Ddq-EE-J7T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="opz-6f-Ldf"/>
+                            <constraint firstItem="d3D-Ck-fQi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pvK-HK-KrF"/>
+                            <constraint firstItem="aQQ-d5-nI9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="d3D-Ck-fQi" secondAttribute="bottom" multiplier="2:4" constant="91" id="rQW-Zf-lgI"/>
+                            <constraint firstItem="Ddq-EE-J7T" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" priority="750" constant="144.5" id="rnV-ta-O9B"/>
+                            <constraint firstItem="T3G-VY-JQe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xwE-WR-6mR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkButton" destination="Ddq-EE-J7T" id="dLe-Jc-qzR"/>
+                        <outlet property="dangerLabel" destination="aQQ-d5-nI9" id="Map-5f-yuz"/>
+                        <outlet property="starRating" destination="T3G-VY-JQe" id="Epp-HV-pg6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>
